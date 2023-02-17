@@ -36,3 +36,16 @@ To set up the app, follow these steps:
 - Now you are ready to try the App
 
 The app should now be running at http://localhost:8080.
+
+## Usage
+To use the app, follow these steps:
+
+- Register an account or log in if you already have one.
+- Browse the books by category or publisher.
+- Click "Add to cart" to add a book to your cart.
+- Click on the "Shopping Cart" button to view the contents of your cart.
+- Click "Checkout" to proceed to the checkout page.
+
+## Final Thoughts
+One of the most rewarding aspects of this project was the opportunity to work with JDBC and implement the DAO pattern. Through this process, we gained a deeper understanding of how to interact with the database and retrieve and manipulate data in a consistent, efficient manner. This experience will undoubtedly serve us well in future projects, and we're excited to continue building on the skills we've developed here.
+It was a great pleasure to work on this project with my amazing team members!
