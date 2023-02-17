@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Codecool"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <title>Codecool Shop</title>
+
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css"/>
+</head>
+
+<body>
+
+<div th:replace="nav.html :: copy"></div>
+
+
+<div class="bodyShoppingCart">
+    <h3 class="mainTitleShoppingCart">Shopping Cart</h3>
+    <div class="CartContainer">
+        <div class="HeaderShoppingCart">
+            <h3 class="HeadingShoppingCart"></h3>
+            <h5 class="Action">Remove all</h5>
+        </div>
+
+
+        <div th:each="item : ${allProductInfo}">
+            <div th:each="mapEntry : ${item.key}">
+
+
+                <div class="Cart-Items ">
+                    <div class="image-box">
+
+                        <img class="imageCart" th:attr="src='/static/img/' + ${mapEntry.key.image} + '.png'" alt=""/>
+
+                    </div>
+                    <div class="about">
+                        <h1 class="titleShoppingCart" th:text="${mapEntry.key.name}">name</h1>
+
+                        <div th:attr="product=${mapEntry.key.id}" class="subtitleShoppingCart" th:text="${mapEntry.key.price}">Price</div>
+
+                    </div>
+                    <div class="counter">
+
+                        <div th:attr="product=${mapEntry.key.id}" class="btnCart minus">-</div>
+                        <div th:attr="product=${mapEntry.key.id}" class="count" th:text="${mapEntry.value}"></div>
+                        <div th:attr="product=${mapEntry.key.id}" class="btnCart plus">+</div>
+
+                    </div>
+                    <div class="prices">
+                        <div th:attr="product=${mapEntry.key.id}" class="amount" th:text="${item.value}">price>Price</div>
+                        <div class="save"><u>Save for later</u></div>
+                        <div class="remove"><u>Remove</u></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="checkout">
+            <div class="total">
+                <div>
+                    <div class="Subtotal">Total</div>
+                </div>
+                <div>
+                    <div class="total-amount" th:text="${totalSum}"></div>
+                    <button onclick="window.location.href='/checkout'" class="buttonShoppingCart">Checkout</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" th:src="@{/static/js/cart.js}"></script>
+    <div th:replace="footer.html :: copy"></div>
+</div>
+</body>
+</html>

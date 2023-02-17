@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Codecool" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Codecool Shop</title>
+
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <script src="https://kit.fontawesome.com/8a721695df.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div th:replace="nav.html :: copy"></div>
+
+<div class="text-center">
+    <h1 class="mainTitleCheckOut">CheckOut</h1>
+</div>
+
+
+<div class="allRow">
+    <div class="col-75">
+        <div class="containerCheckOut">
+            <form action="/action_page.php">
+
+                <div class="rowCheckOut">
+                    <div class="col-50">
+                        <h3>Billing Address</h3>
+                        <label class="labelCheckOut" for="fname"><i class="fa fa-user"></i> Full Name</label>
+                        <input class="inputCheckOut" type="text" id="fname" name="firstname" placeholder="Dea Mik">
+                        <label class="labelCheckOut" for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <input class="inputCheckOut" type="text" id="email" name="email" placeholder="dea@example.com">
+                        <label class="labelCheckOut" for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                        <input class="inputCheckOut" type="text" id="adr" name="address" placeholder="Stephansplatz 1">
+                        <label class="labelCheckOut" for="city"><i class="fa fa-institution"></i> City</label>
+                        <input class="inputCheckOut" type="text" id="city" name="city" placeholder="Wien">
+
+                        <div class="rowCheckOutSmall">
+                            <div class="col-50">
+                                <label class="labelCheckOut" for="state">State</label>
+                                    <input class="inputCheckOutSmall" type="text" id="state" name="state" placeholder="Vienna">
+                            </div>
+                            <div class="col-50">
+                                <label class="labelCheckOut" for="district">Dictrict</label>
+                                <input class="inputCheckOutSmall" type="text" id="district" name="district" placeholder="1030">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-50">
+                        <h3>Payment</h3>
+                        <label class="labelCheckOut" for="fname">Accepted Cards</label>
+                        <div class="icon-container">
+                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                            <i class="fa fa-cc-amex" style="color:blue;"></i>
+                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                        </div>
+                        <label class="labelCheckOut" for="cname">Name on Card</label>
+                        <input class="inputCheckOut" type="text" id="cname" name="cardname" placeholder="Dea Miku">
+                        <label class="labelCheckOut" for="ccnum">Credit card number</label>
+                        <input class="inputCheckOut" type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                        <label class="labelCheckOut" for="expmonth">Exp Month</label>
+                        <input class="inputCheckOut" type="text" id="expmonth" name="expmonth" placeholder="September">
+
+                        <div class="rowCheckOutSmall">
+                            <div class="col-50">
+                                <label class="labelCheckOut" for="expyear">Exp Year</label>
+                                <input class="inputCheckOutSmall" type="text" id="expyear" name="expyear" placeholder="2023">
+                            </div>
+                            <div class="col-50">
+                                <label class="labelCheckOut" for="cvv">CVV</label>
+                                <input class="inputCheckOutSmall" type="text" id="cvv" name="cvv" placeholder="352">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <label class="labelCheckOut">
+                    <input class="inputCheckOut" type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                </label>
+                <input class="inputCheckOut btnCheckOut" type="submit" value="Continue to checkout">
+            </form>
+        </div>
+    </div>
+
+    <div class="col-25">
+        <div class="containerCheckOut">
+            <h4>Cart
+                <span class="price" style="color:black">
+          <i class="fa fa-shopping-cart"></i>
+          <b>4</b>
+        </span>
+            </h4>
+            <p><a >Product 1</a> <span class="price">$15</span></p>
+            <p><a >Product 2</a> <span class="price">$5</span></p>
+            <p><a >Product 3</a> <span class="price">$8</span></p>
+            <p><a >Product 4</a> <span class="price">$2</span></p>
+            <hr>
+            <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+        </div>
+    </div>
+</div>
+
+<br /><br />
+<script type="text/javascript" th:src="@{/static/js/main.js}"></script>
+<div th:replace="footer.html :: copy"></div>
+
+</body>
+</html>

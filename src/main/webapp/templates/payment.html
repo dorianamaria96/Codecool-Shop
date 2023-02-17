@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Codecool" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Codecool Shop</title>
+
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+</head>
+
+<body>
+<div th:replace="nav.html :: copy"></div>
+
+<div class="text-center">
+    <h1 class="mainTitle">Codecool Reads Payment</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="well well-sm">
+                <strong>Payment</strong>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <form action="/order/confirmation" method="get">
+        <div class="row small-top-margin">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 c b">
+                Total price of your order
+            </div>
+            <div class="col-md-5 c" th:text="${cart.countTotal()}"></div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row small-top-margin">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5 c b">
+                Payment method
+            </div>
+
+            <div class="col-md-5">
+
+                <select name="payment" id="payment" class="form-control half block-c">
+                    <option value="1">Credit card</option>
+                    <option value="2">PayPal</option>
+                </select>
+
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row credit-card-row small-top-margin">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5 c b">
+                Card number
+            </div>
+
+            <div class="col-md-5">
+
+                <input type="text" name="card-number" id="card-number" class="form-control half block-c" />
+
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row credit-card-row small-top-margin">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5 c b">
+                Card holder
+            </div>
+
+            <div class="col-md-5">
+
+                <input type="text" name="card-holder" id="card-holder" class="form-control half block-c" />
+
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row credit-card-row small-top-margin">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5 c b">
+                Expiry date
+            </div>
+
+            <div class="col-md-5">
+
+                <input type="text" name="card-expiry" id="card-expiry" class="form-control half block-c" />
+
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row credit-card-row small-top-margin">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5 c b">
+                Code
+            </div>
+
+            <div class="col-md-5">
+
+                <input type="text" name="card-code" id="card-code" class="form-control half block-c" />
+
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row paypal-row small-top-margin" style="display: none;">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5 c b">
+                Username
+            </div>
+
+            <div class="col-md-5">
+
+                <input type="text" name="username" class="form-control half block-c" />
+
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row paypal-row small-top-margin" style="display: none;">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5 c b">
+                Password
+            </div>
+
+            <div class="col-md-5">
+
+                <input type="password" name="password" class="form-control half block-c" />
+
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row small-top-margin">
+
+            <div class="col-md-1"></div>
+            <div class="col-md-10 c b">
+                <div class="td-80"></div>
+                <div class="td-20 c">
+                    <button class="btn btn-success" type="submit">
+                        Confirmation
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+
+        </div>
+    </form>
+
+</div>
+<script type="text/javascript" th:src="@{/static/js/main.js}"></script>
+<div th:replace="footer.html :: copy"></div>
+
+</body>
+</html>
