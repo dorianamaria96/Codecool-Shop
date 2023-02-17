@@ -1,7 +1,7 @@
 # CodecoolShop - Ecommerce Book App
 This is an ecommerce shop app for books made in Java, using Maven as the build tool, Thymeleaf as the templating engine, and PostgreSQL as the database. The app also uses HTML, CSS, and JavaScript for the front-end.
 
-![codecool-shop]("codecool-shop.png")
+![codecool-shop](codecool-shop.png)
 
 ## Features
 The app has the following features:
